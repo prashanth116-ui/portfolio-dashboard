@@ -11,8 +11,10 @@ from components.charts import (
     equity_curve, daily_pnl_bars, entry_type_pie,
     win_rate_by_entry_type, trade_distribution, exit_type_breakdown,
 )
+from components.responsive import inject_responsive_css
 
 st.set_page_config(page_title="Performance", page_icon="📈", layout="wide")
+inject_responsive_css()
 
 st.markdown("# Performance Dashboard")
 st.markdown("---")
@@ -116,25 +118,20 @@ with row2[2]:
 
 st.markdown("---")
 
-# Charts — row 1
+# Charts — full width for readability on all screen sizes
+st.plotly_chart(equity_curve(daily_data, show_dollars, avg_risk), use_container_width=True)
+st.plotly_chart(daily_pnl_bars(daily_data, show_dollars, avg_risk), use_container_width=True)
+
 col1, col2 = st.columns(2)
 with col1:
-    st.plotly_chart(equity_curve(daily_data, show_dollars, avg_risk), use_container_width=True)
-with col2:
-    st.plotly_chart(daily_pnl_bars(daily_data, show_dollars, avg_risk), use_container_width=True)
-
-# Charts — row 2
-col3, col4 = st.columns(2)
-with col3:
     st.plotly_chart(entry_type_pie(all_trades), use_container_width=True)
-with col4:
+with col2:
     st.plotly_chart(win_rate_by_entry_type(all_trades), use_container_width=True)
 
-# Charts — row 3
-col5, col6 = st.columns(2)
-with col5:
+col3, col4 = st.columns(2)
+with col3:
     st.plotly_chart(trade_distribution(all_trades, show_dollars, avg_risk), use_container_width=True)
-with col6:
+with col4:
     st.plotly_chart(exit_type_breakdown(all_trades), use_container_width=True)
 
 # Daily breakdown table with cumulative P/L

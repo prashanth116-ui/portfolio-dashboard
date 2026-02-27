@@ -7,8 +7,10 @@ import streamlit as st
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from components.strategy_cards import render_strategy_card
+from components.responsive import inject_responsive_css
 
 st.set_page_config(page_title="Trading Strategies", page_icon="📊", layout="wide")
+inject_responsive_css()
 
 st.markdown("# Trading Strategies")
 st.markdown(

@@ -4,7 +4,12 @@ from pathlib import Path
 
 import streamlit as st
 
+import sys
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from components.responsive import inject_responsive_css
+
 st.set_page_config(page_title="Version Timeline", page_icon="📅", layout="wide")
+inject_responsive_css()
 
 st.markdown("# Version Timeline")
 st.markdown("Strategy evolution from V6 through V10.15 — 17 versions over 5 months.")

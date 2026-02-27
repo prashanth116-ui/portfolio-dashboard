@@ -13,6 +13,7 @@ import streamlit as st
 import sys
 sys.path.insert(0, str(Path(__file__).parent))
 from components.project_cards import render_project_card_mini, render_trading_card_mini
+from components.responsive import inject_responsive_css
 
 st.set_page_config(
     page_title="Prashanth Sundaram — Portfolio",
@@ -20,6 +21,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+inject_responsive_css()
 
 
 @st.cache_data
