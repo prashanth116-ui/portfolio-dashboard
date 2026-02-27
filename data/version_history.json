@@ -1,0 +1,199 @@
+[
+  {
+    "version": "V6",
+    "date": "2025-10",
+    "title": "Aggressive FVG Creation Entry",
+    "category": "feature",
+    "impact": "Single entry point, foundation strategy",
+    "description": "Initial FVG-based entry strategy with aggressive creation entries at FVG formation."
+  },
+  {
+    "version": "V7",
+    "date": "2025-11",
+    "title": "Profit-Protected 2nd Entry",
+    "category": "feature",
+    "impact": "Added re-entry capability after initial profit",
+    "description": "Second entry allowed only after first trade secures profit, reducing drawdown risk."
+  },
+  {
+    "version": "V8",
+    "date": "2025-12",
+    "title": "Independent 2nd Entry + Position Limit",
+    "category": "feature",
+    "impact": "Concurrent trade management with position limits",
+    "description": "Decoupled second entry from first trade's outcome. Added max position limit to control exposure."
+  },
+  {
+    "version": "V9",
+    "date": "2026-01",
+    "title": "Min Risk Filter + Opposing FVG Exit",
+    "category": "risk",
+    "impact": "Filtered tiny FVGs, added reversal detection",
+    "description": "Skip FVGs with risk below minimum threshold. Exit on opposing FVG formation to catch reversals early."
+  },
+  {
+    "version": "V10",
+    "date": "2026-01",
+    "title": "Quad Entry + Hybrid Exit",
+    "category": "feature",
+    "impact": "4 entry types, 3-contract exit structure",
+    "description": "Added 4 entry types (Creation, Overnight Retrace, Intraday Retrace, BOS) with T1/T2/Runner hybrid exit."
+  },
+  {
+    "version": "V10.1",
+    "date": "2026-01",
+    "title": "ADX >= 22 for Overnight Retrace",
+    "category": "filter",
+    "impact": "Filtered weak-trend retrace entries",
+    "description": "B1 (overnight retrace) entries now require ADX >= 22 to ensure trend strength before entry."
+  },
+  {
+    "version": "V10.2",
+    "date": "2026-01",
+    "title": "Midday + NQ PM Cutoff",
+    "category": "filter",
+    "impact": "Eliminated lunch-hour and late-session noise",
+    "description": "No entries 12:00-14:00 (lunch lull). No NQ/MNQ/QQQ entries after 14:00 (low liquidity)."
+  },
+  {
+    "version": "V10.3",
+    "date": "2026-01",
+    "title": "BOS Risk Cap + Disable SPY Intraday",
+    "category": "risk",
+    "impact": "ES max 8pts, NQ max 20pts BOS risk",
+    "description": "Capped BOS entry risk to prevent oversized losses. Disabled SPY B2 entries (24% WR drag)."
+  },
+  {
+    "version": "V10.4",
+    "date": "2026-01",
+    "title": "ATR Buffer for Equities",
+    "category": "risk",
+    "impact": "+$54k P/L improvement with adaptive stops",
+    "description": "Equities use ATR(14) x 0.5 for stop buffer instead of fixed $0.02. Wider stops reduce stop-hunts."
+  },
+  {
+    "version": "V10.5",
+    "date": "2026-01",
+    "title": "High Displacement Override",
+    "category": "filter",
+    "impact": "3x body skips ADX check for momentum entries",
+    "description": "When candle body >= 3x average, skip the ADX >= 11 requirement. Catches explosive moves immediately."
+  },
+  {
+    "version": "V10.6",
+    "date": "2026-02",
+    "title": "BOS LOSS_LIMIT Per-Symbol",
+    "category": "performance",
+    "impact": "+$1.2k P/L, -$500 drawdown",
+    "description": "ES/MES: BOS disabled (20-38% WR). NQ/MNQ: BOS enabled with 1 loss/day limit. 64% BOS WR (up from 47.5%).",
+    "ab_test": {
+      "days": 12,
+      "baseline_pl": "$118,406",
+      "new_pl": "$124,881",
+      "improvement": "+$6,475"
+    }
+  },
+  {
+    "version": "V10.7",
+    "date": "2026-02",
+    "title": "Dynamic Sizing + ADX Lowered",
+    "category": "feature",
+    "impact": "3-contract first trade, max 6 cts exposure",
+    "description": "1st trade: 3 contracts (T1+T2+Runner). 2nd/3rd: 2 contracts (T1+T2). ADX lowered to >= 11 from 17."
+  },
+  {
+    "version": "V10.8",
+    "date": "2026-02",
+    "title": "Hybrid Filter System",
+    "category": "filter",
+    "impact": "+$90k/30d, +71% more trades, same win rate",
+    "description": "2 mandatory filters (DI direction, FVG size) + 2/3 optional (displacement, ADX, EMA trend).",
+    "ab_test": {
+      "days": 30,
+      "improvement": "+$90,000",
+      "extra_trades": "+71%"
+    }
+  },
+  {
+    "version": "V10.9",
+    "date": "2026-02",
+    "title": "R-Target Tuning (3R/6R)",
+    "category": "performance",
+    "impact": "+31% P/L, 87.7% WR, zero drawdown",
+    "description": "T1 exit lowered from 4R to 3R, trail activation from 8R to 6R. Locks profit before most pullbacks.",
+    "ab_test": {
+      "days": 15,
+      "baseline_pl": "$153,275",
+      "new_pl": "$200,533",
+      "improvement": "+$47,258",
+      "wr_old": "69.2%",
+      "wr_new": "87.7%"
+    }
+  },
+  {
+    "version": "V10.10",
+    "date": "2026-02-17",
+    "title": "Entry Cap Fix + Direction-Aware Breaker",
+    "category": "bugfix",
+    "impact": "+$350k/12d combined P/L",
+    "description": "Fixed lifetime entry counter, direction-aware circuit breaker (3 losses/dir/day), equity FVG date filter, BOS parity, EOD outlook alert."
+  },
+  {
+    "version": "V10.11",
+    "date": "2026-02-20",
+    "title": "Retrace Risk Cap + Instant Startup",
+    "category": "risk",
+    "impact": "ES retrace losses cut 50%, 57-min startup lag eliminated",
+    "description": "ES/MES retrace risk > 8pts forces 1 contract (NQ uncapped). Live bot uses local bar history for instant warmup.",
+    "ab_test": {
+      "days": 15,
+      "baseline_pl": "$144,613",
+      "new_pl": "$145,825",
+      "improvement": "+$1,212"
+    }
+  },
+  {
+    "version": "V10.12",
+    "date": "2026-02-24",
+    "title": "Backtest Parity Fixes",
+    "category": "bugfix",
+    "impact": "~11% gap reduced to ~2-3%",
+    "description": "Trail logic fixes (~$850 recovered), parameter parity between live and backtest, risk manager tracking in paper mode."
+  },
+  {
+    "version": "V10.13",
+    "date": "2026-02-24",
+    "title": "Global Consecutive Loss Stop",
+    "category": "risk",
+    "impact": "Feb 19 loss halved (-$900 to -$412)",
+    "description": "ES/MES stop all trading after 2 consecutive losses. NQ exempt (consecutive losses precede big winners).",
+    "ab_test": {
+      "days": 17,
+      "baseline_pl": "$160,706",
+      "new_pl": "$161,194",
+      "improvement": "+$488"
+    }
+  },
+  {
+    "version": "V10.14",
+    "date": "2026-02-26",
+    "title": "Opposing FVG Exit for T2/Runner",
+    "category": "performance",
+    "impact": "ES +$9,519/18d (+5.8%)",
+    "description": "After 6R touch, exit T2/Runner on opposing FVG formation. Per-symbol: ES 10 ticks, NQ 5 ticks.",
+    "ab_test": {
+      "days": 18,
+      "baseline_pl": "$163,350",
+      "new_pl": "$172,869",
+      "improvement": "+$9,519"
+    }
+  },
+  {
+    "version": "V10.15",
+    "date": "2026-02-26",
+    "title": "Bar-Aligned Scanning",
+    "category": "bugfix",
+    "impact": "Eliminates phantom FVGs from incomplete bars",
+    "description": "Live bot scans synced to 3-min bar close + 5s buffer instead of fixed 180s interval. Prevents phantom FVGs from incomplete TradingView data."
+  }
+]

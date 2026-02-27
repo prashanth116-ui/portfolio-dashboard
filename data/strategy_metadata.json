@@ -1,0 +1,122 @@
+[
+  {
+    "id": "v10_fvg",
+    "name": "ICT FVG Quad Entry",
+    "version": "V10.15",
+    "status": "ACTIVE",
+    "color": "green",
+    "instruments": [
+      "ES",
+      "NQ",
+      "MES",
+      "MNQ",
+      "SPY",
+      "QQQ"
+    ],
+    "description": "Fair Value Gap strategy with 4 entry types, hybrid filter system, and dynamic position sizing. Deployed on DigitalOcean with PickMyTrade webhook execution.",
+    "entry_types": [
+      {
+        "type": "A",
+        "name": "Creation",
+        "description": "Enter on FVG formation with displacement (3x override skips ADX)"
+      },
+      {
+        "type": "B1",
+        "name": "Overnight Retrace",
+        "description": "Price retraces into overnight FVG + rejection (ADX >= 22)"
+      },
+      {
+        "type": "B2",
+        "name": "Intraday Retrace",
+        "description": "Price retraces into session FVG (2+ bars old) + rejection"
+      },
+      {
+        "type": "C",
+        "name": "BOS + Retrace",
+        "description": "Price retraces into FVG after Break of Structure"
+      }
+    ],
+    "exit_structure": {
+      "t1": "Fixed profit at 3R (1 contract)",
+      "t2": "Structure trail with 4-tick buffer after 6R (1 contract)",
+      "runner": "Structure trail with 6-tick buffer after 6R (1st trade only)"
+    },
+    "filters": [
+      "DI Direction",
+      "FVG Size >= 5 ticks",
+      "Displacement >= 1.0x",
+      "ADX >= 11",
+      "EMA 20/50 Trend"
+    ],
+    "tech_stack": [
+      "Python",
+      "TradingView",
+      "Tradovate",
+      "DigitalOcean",
+      "Telegram",
+      "PickMyTrade"
+    ]
+  },
+  {
+    "id": "ict_state_machine",
+    "name": "ICT State Machine",
+    "version": "V1",
+    "status": "DEPRECATED",
+    "color": "gray",
+    "instruments": [
+      "ES"
+    ],
+    "description": "Event-driven state machine approach to ICT concepts. Replaced by V10 FVG strategy due to complexity and lower performance.",
+    "tech_stack": [
+      "Python"
+    ]
+  },
+  {
+    "id": "ict_sweep",
+    "name": "ICT Liquidity Sweep",
+    "version": "V1",
+    "status": "EXPERIMENTAL",
+    "color": "amber",
+    "instruments": [
+      "ES",
+      "NQ"
+    ],
+    "description": "Targets liquidity sweeps above/below previous session highs/lows followed by FVG formation. Captures stop-hunt reversals.",
+    "tech_stack": [
+      "Python",
+      "TradingView"
+    ]
+  },
+  {
+    "id": "ict_ote",
+    "name": "ICT Optimal Trade Entry",
+    "version": "V1",
+    "status": "EXPERIMENTAL",
+    "color": "amber",
+    "instruments": [
+      "ES",
+      "NQ"
+    ],
+    "description": "Fibonacci-based entries at the 62-79% retracement zone within a higher-timeframe displacement leg. Classic ICT setup.",
+    "tech_stack": [
+      "Python",
+      "TradingView"
+    ]
+  },
+  {
+    "id": "ttfm",
+    "name": "TTFM Trend Follower",
+    "version": "V2",
+    "status": "EXPERIMENTAL",
+    "color": "amber",
+    "instruments": [
+      "ES",
+      "NQ"
+    ],
+    "description": "Trend-following momentum strategy using ADX, moving averages, and volume confirmation. Multi-timeframe analysis for entry timing.",
+    "tech_stack": [
+      "Python",
+      "TradingView"
+    ]
+  }
+]
