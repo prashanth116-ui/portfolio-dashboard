@@ -94,9 +94,16 @@ def render_project_card(project: dict):
                 for r in project['remaining']:
                     st.markdown(f"- {r}")
 
-        # Deployment
+        # Links
+        links = []
+        if project.get('github_url'):
+            links.append(f"[GitHub]({project['github_url']})")
+        if project.get('live_url'):
+            links.append(f"[Live App]({project['live_url']})")
         if project.get('deployment') and project['deployment'] != 'N/A':
-            st.caption(f"Deployment: {project['deployment']}")
+            links.append(f"Deployment: {project['deployment']}")
+        if links:
+            st.markdown(" | ".join(links))
 
 
 def render_project_card_mini(project: dict):

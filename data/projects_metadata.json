@@ -6,6 +6,7 @@
     "status": "COMPLETE",
     "completion": 100,
     "repo": "aws-cost-optimizer",
+    "github_url": "https://github.com/prashanth116-ui/aws-cost-optimizer",
     "description": "AWS EC2 and resource cost analysis tool with interactive Streamlit dashboard, rightsizing recommendations with confidence scores, cost anomaly detection, and multi-account AWS Organizations support.",
     "features": [
       "18-page interactive Streamlit dashboard",
@@ -25,6 +26,7 @@
     "status": "IN_PROGRESS",
     "completion": 75,
     "repo": "invoice-saas-starter",
+    "github_url": "https://github.com/prashanth116-ui/invoice-saas-starter",
     "description": "Invoice automation SaaS platform built with Next.js 14. Create, send, and track invoices with Stripe payments, automated emails, recurring invoices, PDF export, and analytics dashboard.",
     "features": [
       "Full invoice CRUD with status tracking",
@@ -50,6 +52,7 @@
     "status": "IN_PROGRESS",
     "completion": 45,
     "repo": "dealscope",
+    "github_url": "https://github.com/prashanth116-ui/dealscope",
     "description": "Commercial real estate property analysis platform for investors. TypeScript monorepo with Expo (mobile), Next.js (web), AWS Lambda backend, DynamoDB, and Stripe payments.",
     "features": [
       "Full financial modeling (income/expenses/NOI/financing/IRR)",
@@ -75,6 +78,7 @@
     "status": "RESEARCH",
     "completion": 0,
     "repo": "healthcare-pa-saas",
+    "github_url": "https://github.com/prashanth116-ui/healthcare-pa-saas",
     "description": "Market research for a Prior Authorization automation SaaS targeting small-to-mid specialty practices (5-50 physicians). No AI-native product exists for this segment. $2.5-2.8B market today, projected $5.8-8.2B by 2033.",
     "features": [
       "783-line comprehensive research document",

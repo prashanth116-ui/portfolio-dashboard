@@ -2,6 +2,7 @@
   {
     "id": "v10_fvg",
     "name": "ICT FVG Quad Entry",
+    "github_url": "https://github.com/prashanth116-ui/tradovate-futures-bot",
     "version": "V10.15",
     "status": "ACTIVE",
     "color": "green",
@@ -60,6 +61,7 @@
   {
     "id": "ict_state_machine",
     "name": "ICT State Machine",
+    "github_url": "https://github.com/prashanth116-ui/tradovate-futures-bot",
     "version": "V1",
     "status": "DEPRECATED",
     "color": "gray",
@@ -74,6 +76,7 @@
   {
     "id": "ict_sweep",
     "name": "ICT Liquidity Sweep",
+    "github_url": "https://github.com/prashanth116-ui/tradovate-futures-bot",
     "version": "V1",
     "status": "EXPERIMENTAL",
     "color": "amber",
@@ -90,6 +93,7 @@
   {
     "id": "ict_ote",
     "name": "ICT Optimal Trade Entry",
+    "github_url": "https://github.com/prashanth116-ui/tradovate-futures-bot",
     "version": "V1",
     "status": "EXPERIMENTAL",
     "color": "amber",
@@ -106,6 +110,7 @@
   {
     "id": "ttfm",
     "name": "TTFM Fractal Model",
+    "github_url": "https://github.com/prashanth116-ui/ttfm-strategy",
     "version": "V2.0",
     "status": "EXPERIMENTAL",
     "color": "amber",
@@ -124,6 +129,7 @@
   {
     "id": "htf_swing",
     "name": "ICT Multi-Timeframe Swing",
+    "github_url": "https://github.com/prashanth116-ui/htf-swing-strategy",
     "version": "V1",
     "status": "IN_DEVELOPMENT",
     "color": "blue",

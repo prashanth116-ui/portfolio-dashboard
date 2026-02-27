@@ -37,6 +37,9 @@ def render_strategy_card(strategy: dict):
             tags = " ".join([f"`{t}`" for t in strategy['tech_stack']])
             st.markdown(tags)
 
+        if strategy.get('github_url'):
+            st.markdown(f"[GitHub]({strategy['github_url']})")
+
         # Expandable details for active strategy
         if strategy.get('entry_types'):
             with st.expander("Entry Types"):
