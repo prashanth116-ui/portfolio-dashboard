@@ -1,7 +1,5 @@
 """Plotly chart builders for performance dashboard."""
 import plotly.graph_objects as go
-import plotly.express as px
-import pandas as pd
 
 
 COLORS = {
@@ -25,14 +23,14 @@ LAYOUT_DEFAULTS = dict(
 )
 
 
-def equity_curve(daily_data: list, show_dollars: bool) -> go.Figure:
+def equity_curve(daily_data: list, show_dollars: bool, avg_risk: float = 375.0) -> go.Figure:
     """Cumulative P/L line chart."""
     dates = [d['date'] for d in daily_data]
     cumulative = []
     running = 0
     for d in daily_data:
         running += d['summary']['total_pnl']
-        cumulative.append(running if show_dollars else running / 375.0)
+        cumulative.append(running if show_dollars else running / avg_risk)
 
     fig = go.Figure()
     fig.add_trace(go.Scatter(
@@ -49,10 +47,10 @@ def equity_curve(daily_data: list, show_dollars: bool) -> go.Figure:
     return fig
 
 
-def daily_pnl_bars(daily_data: list, show_dollars: bool) -> go.Figure:
+def daily_pnl_bars(daily_data: list, show_dollars: bool, avg_risk: float = 375.0) -> go.Figure:
     """Daily P/L bar chart (green/red)."""
     dates = [d['date'] for d in daily_data]
-    pnls = [d['summary']['total_pnl'] if show_dollars else d['summary']['total_pnl'] / 375.0
+    pnls = [d['summary']['total_pnl'] if show_dollars else d['summary']['total_pnl'] / avg_risk
             for d in daily_data]
     colors = [COLORS['green'] if p >= 0 else COLORS['red'] for p in pnls]
 
@@ -86,31 +84,41 @@ def entry_type_pie(trades: list) -> go.Figure:
     return fig
 
 
-def win_rate_gauge(win_rate: float) -> go.Figure:
-    """Win rate gauge chart."""
-    fig = go.Figure(go.Indicator(
-        mode="gauge+number",
-        value=win_rate,
-        number=dict(suffix="%", font=dict(size=36)),
-        gauge=dict(
-            axis=dict(range=[0, 100], tickwidth=1, tickcolor=COLORS['text']),
-            bar=dict(color=COLORS['green'] if win_rate >= 70 else COLORS['amber'] if win_rate >= 50 else COLORS['red']),
-            bgcolor='rgba(255,255,255,0.05)',
-            steps=[
-                dict(range=[0, 50], color='rgba(230,55,87,0.15)'),
-                dict(range=[50, 70], color='rgba(246,195,67,0.15)'),
-                dict(range=[70, 100], color='rgba(0,217,126,0.15)'),
-            ],
-        ),
-        title=dict(text='Win Rate', font=dict(size=16)),
+def win_rate_by_entry_type(trades: list) -> go.Figure:
+    """Win rate broken down by entry type."""
+    type_stats = {}
+    for t in trades:
+        et = t.get('entry_type', 'UNKNOWN')
+        if et not in type_stats:
+            type_stats[et] = {'wins': 0, 'total': 0}
+        type_stats[et]['total'] += 1
+        if t.get('total_dollars', 0) > 0:
+            type_stats[et]['wins'] += 1
+
+    labels = list(type_stats.keys())
+    win_rates = [type_stats[l]['wins'] / type_stats[l]['total'] * 100 for l in labels]
+    counts = [type_stats[l]['total'] for l in labels]
+    bar_colors = [COLORS['green'] if wr >= 70 else COLORS['amber'] if wr >= 50 else COLORS['red'] for wr in win_rates]
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=labels, y=win_rates,
+        marker_color=bar_colors,
+        text=[f"{wr:.0f}% ({c})" for wr, c in zip(win_rates, counts)],
+        textposition='auto',
     ))
-    fig.update_layout(height=250, **LAYOUT_DEFAULTS)
+    fig.update_layout(
+        title='Win Rate by Entry Type',
+        xaxis_title='Entry Type', yaxis_title='Win Rate (%)',
+        yaxis=dict(range=[0, 100], gridcolor='rgba(255,255,255,0.1)'),
+        **LAYOUT_DEFAULTS,
+    )
     return fig
 
 
-def trade_distribution(trades: list, show_dollars: bool) -> go.Figure:
+def trade_distribution(trades: list, show_dollars: bool, avg_risk: float = 375.0) -> go.Figure:
     """Trade P/L distribution histogram."""
-    pnls = [t['total_dollars'] if show_dollars else t['total_dollars'] / 375.0 for t in trades]
+    pnls = [t['total_dollars'] if show_dollars else t['total_dollars'] / avg_risk for t in trades]
 
     fig = go.Figure()
     fig.add_trace(go.Histogram(

@@ -10,10 +10,13 @@ st.markdown("# Version Timeline")
 st.markdown("Strategy evolution from V6 through V10.15 — 17 versions over 5 months.")
 st.markdown("---")
 
-# Load version history
-data_path = Path(__file__).parent.parent / 'data' / 'version_history.json'
-with open(data_path) as f:
-    versions = json.load(f)
+@st.cache_data
+def load_versions():
+    data_path = Path(__file__).parent.parent / 'data' / 'version_history.json'
+    with open(data_path) as f:
+        return json.load(f)
+
+versions = load_versions()
 
 # Category filter
 categories = sorted(set(v['category'] for v in versions))

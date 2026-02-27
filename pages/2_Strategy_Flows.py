@@ -60,7 +60,7 @@ DIAGRAMS = [
 
 diagrams_dir = Path(__file__).parent.parent / 'diagrams'
 
-for diagram in DIAGRAMS:
+for i, diagram in enumerate(DIAGRAMS):
     img_path = diagrams_dir / diagram['file']
 
     with st.container(border=True):
@@ -68,7 +68,7 @@ for diagram in DIAGRAMS:
         st.caption(diagram['description'])
 
         if img_path.exists():
-            with st.expander("View Diagram", expanded=False):
+            with st.expander("View Diagram", expanded=(i == 0)):
                 st.image(str(img_path), use_container_width=True)
         else:
             st.warning(f"Diagram not found: {diagram['file']}")

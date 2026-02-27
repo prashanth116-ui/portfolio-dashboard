@@ -12,34 +12,30 @@ from components.strategy_cards import render_strategy_card
 st.set_page_config(page_title="Strategy Overview", page_icon="📊", layout="wide")
 
 st.markdown("# Strategy Overview")
-st.markdown("---")
+st.markdown(
+    "5 strategies across futures and equities. "
+    "V10 FVG is the active production strategy; others are in research/experimental phases."
+)
 
-# Hero section
-col1, col2 = st.columns([2, 1])
+col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.markdown("## ICT Futures Trading System")
-    st.markdown(
-        "Automated futures trading bot implementing **Inner Circle Trader** concepts "
-        "with algorithmic execution. Fair Value Gap detection, multi-entry framework, "
-        "hybrid filter system, and dynamic position sizing."
-    )
-    tech_tags = "`Python` `TradingView` `Tradovate` `DigitalOcean` `Telegram` `PickMyTrade`"
-    st.markdown(tech_tags)
-
+    st.metric("Active", "V10.15")
 with col2:
-    st.markdown("### Current Version")
-    st.markdown("## V10.15")
-    st.caption("Bar-Aligned Scanning")
-    st.markdown("**17 versions** over 5 months")
-    st.markdown("**6 instruments** (ES, NQ, MES, MNQ, SPY, QQQ)")
+    st.metric("Instruments", "6")
+with col3:
+    st.metric("Versions", "20")
+with col4:
+    st.metric("Development", "5 months")
 
 st.markdown("---")
-st.markdown("## Strategies")
 
-# Load strategy metadata
-data_path = Path(__file__).parent.parent / 'data' / 'strategy_metadata.json'
-with open(data_path) as f:
-    strategies = json.load(f)
+@st.cache_data
+def load_strategies():
+    data_path = Path(__file__).parent.parent / 'data' / 'strategy_metadata.json'
+    with open(data_path) as f:
+        return json.load(f)
+
+strategies = load_strategies()
 
 # Active strategy first (full width)
 active = [s for s in strategies if s['status'] == 'ACTIVE']
