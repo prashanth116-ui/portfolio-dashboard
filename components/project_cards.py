@@ -32,6 +32,16 @@ STATUS_LABELS = {
     'DEPRECATED': 'Deprecated',
 }
 
+STATUS_EMOJI = {
+    'COMPLETE': '\U0001F7E2',
+    'IN_PROGRESS': '\U0001F535',
+    'RESEARCH': '\U0001F7E0',
+    'ACTIVE': '\U0001F7E2',
+    'EXPERIMENTAL': '\U0001F7E0',
+    'IN_DEVELOPMENT': '\U0001F535',
+    'DEPRECATED': '\u26AA',
+}
+
 
 def _completion_bar(pct: int, color: str):
     """Render a CSS progress bar."""
@@ -47,7 +57,7 @@ def render_project_card(project: dict):
     """Render a software project card with status badge, completion bar, and tech tags."""
     status = project['status']
     color = STATUS_COLORS.get(status, '#6e84a3')
-    dot = STATUS_DOTS.get(status, 'gray')
+    emoji = STATUS_EMOJI.get(status, '\u26AA')
     label = STATUS_LABELS.get(status, status)
 
     with st.container(border=True):
@@ -55,7 +65,7 @@ def render_project_card(project: dict):
         with col1:
             st.markdown(f"### {project['name']}")
         with col2:
-            st.markdown(f":{dot}_circle: **{label}**")
+            st.markdown(f"{emoji} **{label}**")
 
         st.markdown(project.get('tagline', ''))
 
@@ -103,7 +113,7 @@ def render_project_card_mini(project: dict):
 
         if pct > 0:
             _completion_bar(pct, color)
-        st.markdown(f":{dot}_circle: {label}")
+        st.markdown(f"{STATUS_EMOJI[status]} {label}")
 
         if project.get('tech_stack'):
             tags = " ".join([f"`{t}`" for t in project['tech_stack'][:4]])
@@ -120,7 +130,7 @@ def render_trading_card_mini(strategy: dict):
         st.markdown(f"**{strategy['name']}**")
         instruments = ', '.join(strategy.get('instruments', []))
         st.caption(f"{strategy.get('version', '')} | {instruments}")
-        st.markdown(f":{dot}_circle: {label}")
+        st.markdown(f"{STATUS_EMOJI[status]} {label}")
 
         if strategy.get('tech_stack'):
             tags = " ".join([f"`{t}`" for t in strategy['tech_stack'][:4]])

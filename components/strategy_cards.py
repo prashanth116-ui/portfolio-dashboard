@@ -9,11 +9,11 @@ STATUS_COLORS = {
     'EXPERIMENTAL': '#f6c343',
 }
 
-STATUS_EMOJI_MAP = {
-    'ACTIVE': 'green',
-    'IN_DEVELOPMENT': 'blue',
-    'DEPRECATED': 'gray',
-    'EXPERIMENTAL': 'orange',
+STATUS_EMOJI = {
+    'ACTIVE': '\U0001F7E2',
+    'IN_DEVELOPMENT': '\U0001F535',
+    'DEPRECATED': '\u26AA',
+    'EXPERIMENTAL': '\U0001F7E0',
 }
 
 
@@ -21,7 +21,7 @@ def render_strategy_card(strategy: dict):
     """Render a single strategy card with expandable details."""
     status = strategy['status']
     color = STATUS_COLORS.get(status, '#6e84a3')
-    status_dot = f":{STATUS_EMOJI_MAP.get(status, 'gray')}_circle:"
+    emoji = STATUS_EMOJI.get(status, '\u26AA')
 
     with st.container(border=True):
         col1, col2 = st.columns([3, 1])
@@ -29,7 +29,7 @@ def render_strategy_card(strategy: dict):
             st.markdown(f"### {strategy['name']}")
             st.caption(f"{strategy.get('version', '')} | {', '.join(strategy.get('instruments', []))}")
         with col2:
-            st.markdown(f"{status_dot} **{status}**")
+            st.markdown(f"{emoji} **{status}**")
 
         st.markdown(strategy['description'])
 

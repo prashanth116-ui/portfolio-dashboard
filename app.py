@@ -109,10 +109,10 @@ trading_systems = [
     },
 ]
 
-STATUS_DOTS = {
-    'ACTIVE': 'green',
-    'IN_DEVELOPMENT': 'blue',
-    'EXPERIMENTAL': 'orange',
+STATUS_EMOJI = {
+    'ACTIVE': '\U0001F7E2',
+    'IN_DEVELOPMENT': '\U0001F535',
+    'EXPERIMENTAL': '\U0001F7E0',
 }
 
 STATUS_LABELS = {
@@ -124,12 +124,12 @@ STATUS_LABELS = {
 tcols = st.columns(3)
 for i, sys_info in enumerate(trading_systems):
     with tcols[i]:
-        dot = STATUS_DOTS.get(sys_info['status'], 'gray')
+        emoji = STATUS_EMOJI.get(sys_info['status'], '\u26AA')
         label = STATUS_LABELS.get(sys_info['status'], sys_info['status'])
         with st.container(border=True):
             st.markdown(f"**{sys_info['name']}**")
             st.caption(sys_info['tagline'])
-            st.markdown(f":{dot}_circle: {label} | {sys_info['version']}")
+            st.markdown(f"{emoji} {label} | {sys_info['version']}")
             st.caption(f"Instruments: {', '.join(sys_info['instruments'])}")
             tags = " ".join([f"`{t}`" for t in sys_info['tech_stack']])
             st.markdown(tags)
