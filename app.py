@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from components.project_cards import render_project_card_mini, render_trading_card_mini
 
 st.set_page_config(
-    page_title="Vinay Kuduva — Portfolio",
+    page_title="Prashanth Sundaram — Portfolio",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -38,7 +38,7 @@ projects = load_projects()
 strategies = load_strategies()
 
 # --- Hero ---
-st.markdown("# Vinay Kuduva")
+st.markdown("# Prashanth Sundaram")
 st.markdown(
     "Software engineer building algorithmic trading systems, SaaS products, "
     "and cloud infrastructure tools."
