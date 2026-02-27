@@ -55,7 +55,11 @@ with col3:
 st.markdown("---")
 
 # --- Software Projects (2x2) ---
-st.markdown("### Software Projects")
+header1, link1 = st.columns([4, 1])
+with header1:
+    st.markdown("### Software Projects")
+with link1:
+    st.page_link("pages/1_Software_Projects.py", label="View all →")
 
 row1 = st.columns(2)
 row2 = st.columns(2)
@@ -63,11 +67,16 @@ cols = [row1[0], row1[1], row2[0], row2[1]]
 for i, proj in enumerate(projects):
     with cols[i]:
         render_project_card_mini(proj)
+        st.page_link("pages/1_Software_Projects.py", label="Details →")
 
 st.markdown("---")
 
 # --- Trading Systems (3 columns) ---
-st.markdown("### Trading Systems")
+header2, link2 = st.columns([4, 1])
+with header2:
+    st.markdown("### Trading Systems")
+with link2:
+    st.page_link("pages/2_Trading_Strategies.py", label="View all →")
 
 # Group strategies by repo/system
 trading_systems = [
@@ -124,15 +133,18 @@ for i, sys_info in enumerate(trading_systems):
             st.caption(f"Instruments: {', '.join(sys_info['instruments'])}")
             tags = " ".join([f"`{t}`" for t in sys_info['tech_stack']])
             st.markdown(tags)
+            st.page_link("pages/2_Trading_Strategies.py", label="Details →")
 
 st.markdown("---")
 st.markdown("### Pages")
-st.markdown(
-    "- **Software Projects** — 4 project cards with status, completion, and tech stack\n"
-    "- **Trading Strategies** — 6 strategies across 3 repos with entry types, filters, and exits\n"
-    "- **Strategy Flows** — 9 architecture diagrams covering the signal-to-execution pipeline\n"
-    "- **Version Timeline** — 20 versions from V6 to V10.15 with A/B test results\n"
-    "- **Performance** — Backtest equity curves, entry breakdowns, and trade distributions"
-)
 
-st.caption("Use the sidebar to navigate between pages.")
+page_links = [
+    ("pages/1_Software_Projects.py", "Software Projects", "4 project cards with status, completion, and tech stack"),
+    ("pages/2_Trading_Strategies.py", "Trading Strategies", "6 strategies across 3 repos with entry types, filters, and exits"),
+    ("pages/3_Strategy_Flows.py", "Strategy Flows", "9 architecture diagrams covering the signal-to-execution pipeline"),
+    ("pages/4_Version_Timeline.py", "Version Timeline", "20 versions from V6 to V10.15 with A/B test results"),
+    ("pages/5_Performance.py", "Performance", "Backtest equity curves, entry breakdowns, and trade distributions"),
+]
+
+for path, name, desc in page_links:
+    st.page_link(path, label=f"**{name}** — {desc}")
