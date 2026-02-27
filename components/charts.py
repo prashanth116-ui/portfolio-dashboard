@@ -107,11 +107,12 @@ def win_rate_by_entry_type(trades: list) -> go.Figure:
         text=[f"{wr:.0f}% ({c})" for wr, c in zip(win_rates, counts)],
         textposition='auto',
     ))
+    layout = {**LAYOUT_DEFAULTS}
+    layout['yaxis'] = dict(range=[0, 100], gridcolor='rgba(255,255,255,0.1)')
     fig.update_layout(
         title='Win Rate by Entry Type',
         xaxis_title='Entry Type', yaxis_title='Win Rate (%)',
-        yaxis=dict(range=[0, 100], gridcolor='rgba(255,255,255,0.1)'),
-        **LAYOUT_DEFAULTS,
+        **layout,
     )
     return fig
 
