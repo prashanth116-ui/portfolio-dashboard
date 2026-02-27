@@ -1,4 +1,4 @@
-"""Page 4: Performance Dashboard — Charts, metrics, and privacy toggle."""
+"""Page 5: Performance Dashboard — Charts, metrics, and privacy toggle."""
 import json
 from pathlib import Path
 

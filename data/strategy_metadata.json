@@ -105,18 +105,41 @@
   },
   {
     "id": "ttfm",
-    "name": "TTFM Trend Follower",
-    "version": "V2",
+    "name": "TTFM Fractal Model",
+    "version": "V2.0",
     "status": "EXPERIMENTAL",
     "color": "amber",
     "instruments": [
       "ES",
-      "NQ"
+      "NQ",
+      "MES",
+      "MNQ"
     ],
-    "description": "Trend-following momentum strategy using ADX, moving averages, and volume confirmation. Multi-timeframe analysis for entry timing.",
+    "description": "TTrades Fractal Model (TTFM) — mechanical system using C3/C4 candle patterns with CISD confirmation and daily bias alignment. 15m entries with 1R fixed T1 exit and 3R trail activation.",
     "tech_stack": [
       "Python",
       "TradingView"
+    ]
+  },
+  {
+    "id": "htf_swing",
+    "name": "ICT Multi-Timeframe Swing",
+    "version": "V1",
+    "status": "IN_DEVELOPMENT",
+    "color": "blue",
+    "instruments": [
+      "ES",
+      "NQ",
+      "CL",
+      "GC",
+      "SPY",
+      "QQQ"
+    ],
+    "description": "Multi-timeframe ICT swing trading for 1-2 week holds. Analyzes Daily (bias), 4H (structure), 1H (order blocks/FVGs), and 15m (precision entries). BOS/CHoCH detection, order blocks, FVG identification, and liquidity sweep detection.",
+    "tech_stack": [
+      "Python",
+      "TradingView",
+      "Pine Script"
     ]
   }
 ]

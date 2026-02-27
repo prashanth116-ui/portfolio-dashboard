@@ -4,12 +4,14 @@ import streamlit as st
 
 STATUS_COLORS = {
     'ACTIVE': '#00d97e',
+    'IN_DEVELOPMENT': '#2c7be5',
     'DEPRECATED': '#6e84a3',
     'EXPERIMENTAL': '#f6c343',
 }
 
 STATUS_EMOJI_MAP = {
     'ACTIVE': 'green',
+    'IN_DEVELOPMENT': 'blue',
     'DEPRECATED': 'gray',
     'EXPERIMENTAL': 'orange',
 }

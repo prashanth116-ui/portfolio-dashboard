@@ -1,4 +1,4 @@
-"""Page 2: Strategy Flow Diagrams — Display 9 architecture diagrams."""
+"""Page 3: Strategy Flow Diagrams — Display 9 architecture diagrams."""
 from pathlib import Path
 
 import streamlit as st
