@@ -3,7 +3,7 @@
     "symbol": "ES",
     "tick_value": 12.5,
     "strategy_version": "V10.15",
-    "exported_at": "2026-02-27T13:50:31.577727",
+    "exported_at": "2026-03-02T11:48:47.115967",
     "days": [
       {
         "date": "2026-02-02",
@@ -5328,37 +5328,6 @@
             "contracts": 3
           },
           {
-            "direction": "SHORT",
-            "entry_type": "RETRACEMENT",
-            "entry_time": "2026-02-18T09:42:00",
-            "entry_price": 6883.5,
-            "edge_price": 6888.25,
-            "midpoint_price": 6883.5,
-            "contracts_filled": 3,
-            "fill_type": "FULL",
-            "stop_price": 6889.25,
-            "fvg_low": 6888.25,
-            "fvg_high": 6889.5,
-            "target_4r": 6866.25,
-            "target_8r": 6849.0,
-            "plus_4r": 6866.25,
-            "risk": 5.75,
-            "total_pnl": -17.25,
-            "total_dollars": -862.5,
-            "was_stopped": true,
-            "exits": [
-              {
-                "type": "STOP",
-                "pnl": -17.25,
-                "price": 6889.25,
-                "time": "2026-02-18T09:54:00",
-                "cts": 3
-              }
-            ],
-            "is_reentry": true,
-            "contracts": 3
-          },
-          {
             "direction": "LONG",
             "entry_type": "CREATION",
             "entry_time": "2026-02-18T10:03:00",
@@ -5595,10 +5564,10 @@
           }
         ],
         "summary": {
-          "num_trades": 11,
+          "num_trades": 10,
           "wins": 9,
-          "losses": 2,
-          "total_pnl": 11056.25
+          "losses": 1,
+          "total_pnl": 11918.75
         }
       },
       {
@@ -7814,13 +7783,179 @@
             ],
             "is_reentry": true,
             "contracts": 3
+          },
+          {
+            "direction": "LONG",
+            "entry_type": "CREATION",
+            "entry_time": "2026-02-27T14:03:00",
+            "entry_price": 6867.125,
+            "edge_price": 6868.25,
+            "midpoint_price": 6867.125,
+            "contracts_filled": 3,
+            "fill_type": "FULL",
+            "stop_price": 6865.5,
+            "fvg_low": 6866.0,
+            "fvg_high": 6868.25,
+            "target_4r": 6872.0,
+            "target_8r": 6876.875,
+            "plus_4r": 6872.0,
+            "risk": 1.625,
+            "total_pnl": 4.875,
+            "total_dollars": 243.75,
+            "was_stopped": false,
+            "exits": [
+              {
+                "type": "4R_PARTIAL",
+                "pnl": 4.875,
+                "price": 6872.0,
+                "time": "2026-02-27T14:06:00",
+                "cts": 1
+              },
+              {
+                "type": "TRAIL_STOP",
+                "pnl": 0.0,
+                "price": 6867.125,
+                "time": "2026-02-27T14:06:00",
+                "cts": 2
+              }
+            ],
+            "is_reentry": true,
+            "contracts": 3
+          },
+          {
+            "direction": "SHORT",
+            "entry_type": "CREATION",
+            "entry_time": "2026-02-27T14:09:00",
+            "entry_price": 6867.125,
+            "edge_price": 6866.0,
+            "midpoint_price": 6867.125,
+            "contracts_filled": 3,
+            "fill_type": "FULL",
+            "stop_price": 6868.75,
+            "fvg_low": 6866.0,
+            "fvg_high": 6868.25,
+            "target_4r": 6862.25,
+            "target_8r": 6857.375,
+            "plus_4r": 6862.25,
+            "risk": 1.625,
+            "total_pnl": 14.625,
+            "total_dollars": 731.25,
+            "was_stopped": false,
+            "exits": [
+              {
+                "type": "4R_PARTIAL",
+                "pnl": 4.875,
+                "price": 6862.25,
+                "time": "2026-02-27T14:21:00",
+                "cts": 1
+              },
+              {
+                "type": "T2_STRUCT",
+                "pnl": 4.875,
+                "price": 6862.25,
+                "time": "2026-02-27T14:33:00",
+                "cts": 1
+              },
+              {
+                "type": "RUNNER_STOP",
+                "pnl": 4.875,
+                "price": 6862.25,
+                "time": "2026-02-27T14:33:00",
+                "cts": 1
+              }
+            ],
+            "is_reentry": true,
+            "contracts": 3
+          },
+          {
+            "direction": "LONG",
+            "entry_type": "CREATION",
+            "entry_time": "2026-02-27T15:12:00",
+            "entry_price": 6867.875,
+            "edge_price": 6870.25,
+            "midpoint_price": 6867.875,
+            "contracts_filled": 3,
+            "fill_type": "FULL",
+            "stop_price": 6865.0,
+            "fvg_low": 6865.5,
+            "fvg_high": 6870.25,
+            "target_4r": 6876.5,
+            "target_8r": 6885.125,
+            "plus_4r": 6876.5,
+            "risk": 2.875,
+            "total_pnl": 25.875,
+            "total_dollars": 1293.75,
+            "was_stopped": false,
+            "exits": [
+              {
+                "type": "4R_PARTIAL",
+                "pnl": 8.625,
+                "price": 6876.5,
+                "time": "2026-02-27T15:15:00",
+                "cts": 1
+              },
+              {
+                "type": "T2_STRUCT",
+                "pnl": 8.625,
+                "price": 6876.5,
+                "time": "2026-02-27T15:33:00",
+                "cts": 1
+              },
+              {
+                "type": "RUNNER_STOP",
+                "pnl": 8.625,
+                "price": 6876.5,
+                "time": "2026-02-27T15:33:00",
+                "cts": 1
+              }
+            ],
+            "is_reentry": true,
+            "contracts": 3
+          },
+          {
+            "direction": "LONG",
+            "entry_type": "CREATION",
+            "entry_time": "2026-02-27T15:15:00",
+            "entry_price": 6873.5,
+            "edge_price": 6876.25,
+            "midpoint_price": 6873.5,
+            "contracts_filled": 2,
+            "fill_type": "FULL",
+            "stop_price": 6870.25,
+            "fvg_low": 6870.75,
+            "fvg_high": 6876.25,
+            "target_4r": 6883.25,
+            "target_8r": 6893.0,
+            "plus_4r": 6883.25,
+            "risk": 3.25,
+            "total_pnl": 9.75,
+            "total_dollars": 487.5,
+            "was_stopped": false,
+            "exits": [
+              {
+                "type": "4R_PARTIAL",
+                "pnl": 9.75,
+                "price": 6883.25,
+                "time": "2026-02-27T15:21:00",
+                "cts": 1
+              },
+              {
+                "type": "TRAIL_STOP",
+                "pnl": 0.0,
+                "price": 6873.5,
+                "time": "2026-02-27T15:36:00",
+                "cts": 1
+              }
+            ],
+            "is_reentry": true,
+            "contracts": 2
           }
         ],
         "summary": {
-          "num_trades": 8,
-          "wins": 7,
+          "num_trades": 12,
+          "wins": 11,
           "losses": 1,
-          "total_pnl": 3468.75
+          "total_pnl": 6225.0
         }
       }
     ]
@@ -7829,7 +7964,7 @@
     "symbol": "NQ",
     "tick_value": 5.0,
     "strategy_version": "V10.15",
-    "exported_at": "2026-02-27T13:50:40.003451",
+    "exported_at": "2026-03-02T11:48:55.702631",
     "days": [
       {
         "date": "2026-02-02",
@@ -11638,7 +11773,7 @@
             "entry_price": 24739.125,
             "edge_price": 24764.5,
             "midpoint_price": 24739.125,
-            "contracts_filled": 3,
+            "contracts_filled": 2,
             "fill_type": "FULL",
             "stop_price": 24713.25,
             "fvg_low": 24713.75,
@@ -11647,15 +11782,46 @@
             "target_8r": 24894.375,
             "plus_4r": 24816.75,
             "risk": 25.875,
-            "total_pnl": -77.625,
-            "total_dollars": -1552.5,
+            "total_pnl": -51.75,
+            "total_dollars": -1035.0,
             "was_stopped": true,
             "exits": [
               {
                 "type": "STOP",
-                "pnl": -77.625,
+                "pnl": -51.75,
                 "price": 24713.25,
                 "time": "2026-02-17T09:42:00",
+                "cts": 2
+              }
+            ],
+            "is_reentry": true,
+            "contracts": 2
+          },
+          {
+            "direction": "LONG",
+            "entry_type": "RETRACEMENT",
+            "entry_time": "2026-02-17T09:30:00",
+            "entry_price": 24666.75,
+            "edge_price": 24615.75,
+            "midpoint_price": 24666.75,
+            "contracts_filled": 3,
+            "fill_type": "FULL",
+            "stop_price": 24605.25,
+            "fvg_low": 24610.75,
+            "fvg_high": 24615.75,
+            "target_4r": 24851.25,
+            "target_8r": 25035.75,
+            "plus_4r": 24851.25,
+            "risk": 61.5,
+            "total_pnl": -184.5,
+            "total_dollars": -3690.0,
+            "was_stopped": true,
+            "exits": [
+              {
+                "type": "STOP",
+                "pnl": -184.5,
+                "price": 24605.25,
+                "time": "2026-02-17T09:48:00",
                 "cts": 3
               }
             ],
@@ -11899,10 +12065,10 @@
           }
         ],
         "summary": {
-          "num_trades": 9,
+          "num_trades": 10,
           "wins": 8,
-          "losses": 1,
-          "total_pnl": 16802.5
+          "losses": 2,
+          "total_pnl": 13630.0
         }
       },
       {
@@ -13901,88 +14067,12 @@
           },
           {
             "direction": "LONG",
-            "entry_type": "INTRADAY_RETRACE",
-            "entry_time": "2026-02-27T09:54:00",
-            "entry_price": 24871.25,
-            "edge_price": 24860.25,
-            "midpoint_price": 24871.25,
-            "contracts_filled": 2,
-            "fill_type": "FULL",
-            "stop_price": 24849.5,
-            "fvg_low": 24828.25,
-            "fvg_high": 24860.25,
-            "target_4r": 24936.5,
-            "target_8r": 25001.75,
-            "plus_4r": 24936.5,
-            "risk": 21.75,
-            "total_pnl": 65.25,
-            "total_dollars": 1305.0,
-            "was_stopped": false,
-            "exits": [
-              {
-                "type": "4R_PARTIAL",
-                "pnl": 65.25,
-                "price": 24936.5,
-                "time": "2026-02-27T10:00:00",
-                "cts": 1
-              },
-              {
-                "type": "TRAIL_STOP",
-                "pnl": 0.0,
-                "price": 24871.25,
-                "time": "2026-02-27T10:00:00",
-                "cts": 1
-              }
-            ],
-            "is_reentry": true,
-            "contracts": 2
-          },
-          {
-            "direction": "LONG",
-            "entry_type": "INTRADAY_RETRACE",
-            "entry_time": "2026-02-27T09:57:00",
-            "entry_price": 24880.0,
-            "edge_price": 24860.25,
-            "midpoint_price": 24880.0,
-            "contracts_filled": 2,
-            "fill_type": "FULL",
-            "stop_price": 24859.75,
-            "fvg_low": 24828.25,
-            "fvg_high": 24860.25,
-            "target_4r": 24940.75,
-            "target_8r": 25001.5,
-            "plus_4r": 24940.75,
-            "risk": 20.25,
-            "total_pnl": 60.75,
-            "total_dollars": 1215.0,
-            "was_stopped": false,
-            "exits": [
-              {
-                "type": "4R_PARTIAL",
-                "pnl": 60.75,
-                "price": 24940.75,
-                "time": "2026-02-27T10:00:00",
-                "cts": 1
-              },
-              {
-                "type": "TRAIL_STOP",
-                "pnl": 0.0,
-                "price": 24880.0,
-                "time": "2026-02-27T10:00:00",
-                "cts": 1
-              }
-            ],
-            "is_reentry": true,
-            "contracts": 2
-          },
-          {
-            "direction": "LONG",
             "entry_type": "BOS_RETRACE",
             "entry_time": "2026-02-27T10:12:00",
             "entry_price": 24953.25,
             "edge_price": 24952.25,
             "midpoint_price": 24953.25,
-            "contracts_filled": 2,
+            "contracts_filled": 3,
             "fill_type": "FULL",
             "stop_price": 24947.0,
             "fvg_low": 24947.5,
@@ -13991,20 +14081,20 @@
             "target_8r": 24990.75,
             "plus_4r": 24972.0,
             "risk": 6.25,
-            "total_pnl": -12.5,
-            "total_dollars": -250.0,
+            "total_pnl": -18.75,
+            "total_dollars": -375.0,
             "was_stopped": true,
             "exits": [
               {
                 "type": "STOP",
-                "pnl": -12.5,
+                "pnl": -18.75,
                 "price": 24947.0,
                 "time": "2026-02-27T10:15:00",
-                "cts": 2
+                "cts": 3
               }
             ],
-            "is_reentry": true,
-            "contracts": 2
+            "is_reentry": false,
+            "contracts": 3
           },
           {
             "direction": "LONG",
@@ -14013,7 +14103,7 @@
             "entry_price": 24965.875,
             "edge_price": 24973.5,
             "midpoint_price": 24965.875,
-            "contracts_filled": 2,
+            "contracts_filled": 3,
             "fill_type": "FULL",
             "stop_price": 24957.75,
             "fvg_low": 24958.25,
@@ -14038,56 +14128,18 @@
                 "pnl": 0.0,
                 "price": 24965.875,
                 "time": "2026-02-27T11:57:00",
-                "cts": 1
-              }
-            ],
-            "is_reentry": true,
-            "contracts": 2
-          },
-          {
-            "direction": "LONG",
-            "entry_type": "INTRADAY_RETRACE",
-            "entry_time": "2026-02-27T09:45:00",
-            "entry_price": 24870.0,
-            "edge_price": 24860.25,
-            "midpoint_price": 24870.0,
-            "contracts_filled": 3,
-            "fill_type": "FULL",
-            "stop_price": 24815.75,
-            "fvg_low": 24828.25,
-            "fvg_high": 24860.25,
-            "target_4r": 25032.75,
-            "target_8r": 25195.5,
-            "plus_4r": 25032.75,
-            "risk": 54.25,
-            "total_pnl": 230.75,
-            "total_dollars": 4615.0,
-            "was_stopped": false,
-            "exits": [
-              {
-                "type": "4R_PARTIAL",
-                "pnl": 162.75,
-                "price": 25032.75,
-                "time": "2026-02-27T12:06:00",
-                "cts": 1
-              },
-              {
-                "type": "EOD",
-                "pnl": 68.0,
-                "price": 24904.0,
-                "time": "2026-02-27T13:48:00",
                 "cts": 2
               }
             ],
-            "is_reentry": false,
+            "is_reentry": true,
             "contracts": 3
           }
         ],
         "summary": {
-          "num_trades": 9,
-          "wins": 8,
+          "num_trades": 6,
+          "wins": 5,
           "losses": 1,
-          "total_pnl": 12172.5
+          "total_pnl": 4912.5
         }
       }
     ]
