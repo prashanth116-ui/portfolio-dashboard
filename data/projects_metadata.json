@@ -20,6 +20,56 @@
     "deployment": "DigitalOcean Droplet"
   },
   {
+    "id": "polymarket_bot",
+    "name": "Polymarket Trading Bot",
+    "tagline": "AI-powered prediction market bot with LLM probability estimation & Kelly sizing",
+    "status": "ACTIVE",
+    "completion": 90,
+    "repo": "polymarket-bot",
+    "github_url": "https://github.com/prashanth116-ui/polymarket-bot",
+    "description": "24/7 prediction market trading bot for Polymarket with multi-strategy execution (edge-based, market-making, arbitrage). LLM ensemble forecasting with Claude + GPT-4, Kelly-based position sizing, and TypeScript bridge for wallet authentication and order execution.",
+    "features": [
+      "Multi-strategy engine (edge, market-making, arbitrage)",
+      "LLM probability estimation (Claude/GPT-4 ensemble with Brier-weighted scoring)",
+      "Kelly criterion position sizing with category exposure caps",
+      "WebSocket real-time price streaming with REST fallback",
+      "TypeScript bridge for Polymarket wallet auth & CLOB execution",
+      "SQLite market cache & trade persistence (90-day retention)",
+      "24/7 paper trading wrapper with auto-restart & health checks",
+      "Telegram alerts (entries, exits, hourly heartbeat, daily summary)"
+    ],
+    "tech_stack": ["Python", "TypeScript", "Claude API", "GPT-4", "SQLite", "WebSocket"],
+    "deployment": "DigitalOcean Droplet"
+  },
+  {
+    "id": "prompt_iq",
+    "name": "PromptIQ",
+    "tagline": "Chrome extension that scores & rewrites AI prompts for ChatGPT, Claude, Gemini, Copilot & Perplexity",
+    "status": "ACTIVE",
+    "completion": 85,
+    "repo": "prompt-iq",
+    "github_url": "https://github.com/prashanth116-ui/prompt-iq",
+    "description": "Browser extension that evaluates prompts across 6 dimensions (clarity, specificity, context, structure, constraints, role), rewrites them with topic-aware optimization, and formats output for each AI model's strengths.",
+    "features": [
+      "Multi-dimensional prompt scoring engine (6 dimensions, weighted 1-10)",
+      "Topic-aware rewriting (code, writing, business, analysis, creative)",
+      "Model-specific formatting (Claude XML, ChatGPT markdown, Gemini concise, Copilot technical, Perplexity search)",
+      "40 built-in templates across 8 categories",
+      "Guided step-by-step prompt builder",
+      "Site adapters for ChatGPT, Claude, Gemini, Copilot, Perplexity",
+      "Learning system tracking prompt effectiveness (200 records)",
+      "Dark mode, settings, history, onboarding"
+    ],
+    "remaining": [
+      "Firefox extension publish",
+      "Advanced analytics visualization",
+      "Custom user weight profiles",
+      "Server-side rewriting via AI APIs"
+    ],
+    "tech_stack": ["React 19", "TypeScript", "Tailwind CSS 4", "WXT", "Zustand", "Vitest"],
+    "deployment": "Chrome Web Store (planned)"
+  },
+  {
     "id": "invoice_saas",
     "name": "Invoice SaaS Starter",
     "tagline": "Full-stack invoice automation with Stripe payments & recurring billing",
@@ -44,6 +94,34 @@
     ],
     "tech_stack": ["Next.js 14", "Clerk", "Stripe", "Prisma", "Resend"],
     "deployment": "Vercel (planned)"
+  },
+  {
+    "id": "wholesale_crm",
+    "name": "Wholesale CRM",
+    "tagline": "Real estate wholesaling CRM with programmatic lead distress scoring & deal pipeline",
+    "status": "IN_PROGRESS",
+    "completion": 70,
+    "repo": "wholesale-crm",
+    "github_url": "https://github.com/prashanth116-ui/wholesale-crm",
+    "description": "Real estate wholesaling CRM with programmatic lead scoring based on 11 distress signals, deal pipeline with state machine validation, smart buyer matching, and Telegram notifications for high-priority leads.",
+    "features": [
+      "Distress scoring engine (11 YAML-configured signals, weighted 0-100)",
+      "Bulk CSV/JSON lead import with auto-dedup and smart column mapping",
+      "Deal pipeline with validated state machines (8 lead states, 7 deal states)",
+      "Smart buyer matching by market, price range, property type & rehab appetite",
+      "MAO calculation (70% rule) with assignment fee tracking",
+      "Multi-level reporting (pipeline funnel, daily activity, score distribution)",
+      "Telegram alerts for high-priority leads and deal status changes",
+      "Click-based CLI with 15+ commands across 4 command groups"
+    ],
+    "remaining": [
+      "Skip trace API integration",
+      "PDF deal sheet export",
+      "Web UI dashboard (Flask/FastAPI)",
+      "Multi-user support with permissions"
+    ],
+    "tech_stack": ["Python", "SQLite", "Click", "YAML", "Telegram API"],
+    "deployment": "Local CLI"
   },
   {
     "id": "dealscope",

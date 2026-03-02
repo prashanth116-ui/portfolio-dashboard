@@ -40,30 +40,24 @@ def load_strategies():
 
 strategies = load_strategies()
 
-# Active strategy first (full width)
-active = [s for s in strategies if s['status'] == 'ACTIVE']
-for s in active:
-    render_strategy_card(s)
+# Group strategies by status with counts
+_STATUS_GROUPS = [
+    ("Active", ("ACTIVE",), False),
+    ("In Development", ("IN_DEVELOPMENT",), False),
+    ("Experimental", ("EXPERIMENTAL",), True),
+    ("Deprecated", ("DEPRECATED",), True),
+]
 
-# In-development next
-st.markdown("### In Development")
-in_dev = [s for s in strategies if s['status'] == 'IN_DEVELOPMENT']
-for s in in_dev:
-    render_strategy_card(s)
-
-# Experimental strategies in 2-column grid
-st.markdown("### Experimental")
-experimental = [s for s in strategies if s['status'] == 'EXPERIMENTAL']
-cols = st.columns(2)
-for i, s in enumerate(experimental):
-    with cols[i % 2]:
-        render_strategy_card(s)
-
-# Deprecated strategies
-deprecated = [s for s in strategies if s['status'] == 'DEPRECATED']
-if deprecated:
-    st.markdown("### Deprecated")
-    cols = st.columns(2)
-    for i, s in enumerate(deprecated):
-        with cols[i % 2]:
+for group_label, statuses, use_grid in _STATUS_GROUPS:
+    group = [s for s in strategies if s['status'] in statuses]
+    if not group:
+        continue
+    st.markdown(f"### {group_label} ({len(group)})")
+    if use_grid:
+        cols = st.columns(2)
+        for i, s in enumerate(group):
+            with cols[i % 2]:
+                render_strategy_card(s)
+    else:
+        for s in group:
             render_strategy_card(s)

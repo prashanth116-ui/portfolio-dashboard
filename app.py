@@ -48,7 +48,7 @@ st.markdown(
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.metric("Projects", len(projects) + 3)  # 4 software + 3 trading repos
+    st.metric("Projects", len(projects) + 3)  # software + 3 trading repos
 with col2:
     st.metric("Trading Systems", "3 repos")
 with col3:
@@ -63,13 +63,14 @@ with header1:
 with link1:
     st.page_link("pages/1_Software_Projects.py", label="View all →")
 
-row1 = st.columns(2)
-row2 = st.columns(2)
-cols = [row1[0], row1[1], row2[0], row2[1]]
-for i, proj in enumerate(projects):
-    with cols[i]:
-        render_project_card_mini(proj)
-        st.page_link("pages/1_Software_Projects.py", label="Details →")
+n_cols = 3
+rows = [projects[i:i + n_cols] for i in range(0, len(projects), n_cols)]
+for row in rows:
+    cols = st.columns(n_cols)
+    for i, proj in enumerate(row):
+        with cols[i]:
+            render_project_card_mini(proj)
+            st.page_link("pages/1_Software_Projects.py", label="Details →")
 
 st.markdown("---")
 
@@ -141,7 +142,7 @@ st.markdown("---")
 st.markdown("### Pages")
 
 page_links = [
-    ("pages/1_Software_Projects.py", "Software Projects", "4 project cards with status, completion, and tech stack"),
+    ("pages/1_Software_Projects.py", "Software Projects", "7 project cards with status, completion, and tech stack"),
     ("pages/2_Trading_Strategies.py", "Trading Strategies", "6 strategies across 3 repos with entry types, filters, and exits"),
     ("pages/3_Strategy_Flows.py", "Strategy Flows", "9 architecture diagrams covering the signal-to-execution pipeline"),
     ("pages/4_Version_Timeline.py", "Version Timeline", "20 versions from V6 to V10.15 with A/B test results"),
