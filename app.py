@@ -46,12 +46,17 @@ st.markdown(
     "and cloud infrastructure tools."
 )
 
-col1, col2, col3 = st.columns(3)
+active_projects = [p for p in projects if p['status'] != 'ARCHIVED']
+archived_projects = [p for p in projects if p['status'] == 'ARCHIVED']
+
+col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.metric("Projects", len(projects))
+    st.metric("Active Projects", len(active_projects))
 with col2:
-    st.metric("Trading Systems", "3 repos")
+    st.metric("Archived", len(archived_projects))
 with col3:
+    st.metric("Trading Systems", "3 repos")
+with col4:
     st.metric("Strategies", len(strategies))
 
 st.markdown("---")
@@ -64,7 +69,7 @@ with link1:
     st.page_link("pages/1_Software_Projects.py", label="View all →")
 
 n_cols = 3
-rows = [projects[i:i + n_cols] for i in range(0, len(projects), n_cols)]
+rows = [active_projects[i:i + n_cols] for i in range(0, len(active_projects), n_cols)]
 for row in rows:
     cols = st.columns(n_cols)
     for i, proj in enumerate(row):
@@ -87,7 +92,7 @@ trading_systems = [
         "name": "tradovate-futures-bot",
         "status": "ACTIVE",
         "version": "V10.16",
-        "instruments": ["ES", "NQ", "MES", "MNQ", "SPY", "QQQ"],
+        "instruments": ["ES", "NQ", "MES", "MNQ", "SPY", "QQQ", "IWM"],
         "tagline": "ICT intraday — 4 entry types, 82.5% WR, per-symbol trail optimization",
         "tech_stack": ["Python", "TradingView", "Tradovate", "Telegram"],
         "strategies": [s['name'] for s in strategies if s['id'] in ('v10_fvg', 'ict_sweep', 'ict_ote', 'ict_state_machine')],
@@ -142,7 +147,7 @@ st.markdown("---")
 st.markdown("### Pages")
 
 page_links = [
-    ("pages/1_Software_Projects.py", "Software Projects", "11 project cards with status, completion, and tech stack"),
+    ("pages/1_Software_Projects.py", "Software Projects", "10 project cards with status, completion, and tech stack"),
     ("pages/2_Trading_Strategies.py", "Trading Strategies", "6 strategies across 3 repos with entry types, filters, and exits"),
     ("pages/3_Strategy_Flows.py", "Strategy Flows", "9 architecture diagrams covering the signal-to-execution pipeline"),
     ("pages/4_Version_Timeline.py", "Version Timeline", "21 versions from V6 to V10.16 with A/B test results"),

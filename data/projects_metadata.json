@@ -230,5 +230,55 @@
     ],
     "tech_stack": ["Python", "Streamlit", "Plotly", "pandas"],
     "deployment": "Streamlit Cloud"
+  },
+  {
+    "id": "trading_monorepo",
+    "name": "Trading Strategies Monorepo",
+    "tagline": "Original monorepo for all ICT strategies - migrated to separate repos",
+    "status": "ARCHIVED",
+    "completion": 100,
+    "description": "Monorepo housing multiple ICT trading strategies (V10 Quad Entry, ICT Sweep, ICT OTE, HTF Swing). Split into separate repos (tradovate-futures-bot, htf-swing-strategy) for independent development and deployment.",
+    "tech_stack": ["Python"],
+    "deployment": "N/A"
+  },
+  {
+    "id": "chat_app",
+    "name": "Chat App",
+    "tagline": "Real-time chat with geographic rooms, user verification, and PWA support",
+    "status": "ARCHIVED",
+    "completion": 70,
+    "description": "Cross-platform real-time chat application with geographic room organization, user verification (16+), and Progressive Web App support.",
+    "tech_stack": ["React 18", "TypeScript", "Node.js", "PostgreSQL", "Redis", "Socket.io"],
+    "deployment": "N/A"
+  },
+  {
+    "id": "reddit_layoffs",
+    "name": "Reddit Layoffs Tracker",
+    "tagline": "Reddit sentiment + verified layoff data dashboards with heatmaps",
+    "status": "ARCHIVED",
+    "completion": 80,
+    "description": "Combines Reddit sentiment data (r/layoffs, r/jobs) with verified layoff numbers (Computerworld, WARN filings). Interactive dashboards and heatmaps for trend visualization.",
+    "tech_stack": ["Python", "TextBlob", "Plotly", "Streamlit"],
+    "deployment": "N/A"
+  },
+  {
+    "id": "board_meeting_avatar",
+    "name": "Board Meeting Avatar",
+    "tagline": "AI avatar for presenting slide decks at board meetings with live Q&A handoff",
+    "status": "ARCHIVED",
+    "completion": 40,
+    "description": "AI avatar presentation system using SlidesOrator to present slide decks at board meetings on your behalf, with live Q&A handoff capability. Proof of concept exploring free tier.",
+    "tech_stack": ["Python", "SlidesOrator API"],
+    "deployment": "N/A"
+  },
+  {
+    "id": "reddit_saas_ideas",
+    "name": "Reddit SaaS Ideas",
+    "tagline": "SaaS idea research and validation sourced from Reddit communities",
+    "status": "ARCHIVED",
+    "completion": 50,
+    "description": "Research project for identifying and validating SaaS product ideas sourced from Reddit discussions and community pain points.",
+    "tech_stack": ["Markdown"],
+    "deployment": "N/A"
   }
 ]

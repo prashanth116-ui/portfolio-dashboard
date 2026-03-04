@@ -10,6 +10,7 @@ STATUS_COLORS = {
     'EXPERIMENTAL': '#f6c343',
     'IN_DEVELOPMENT': '#2c7be5',
     'DEPRECATED': '#6e84a3',
+    'ARCHIVED': '#6e84a3',
 }
 
 STATUS_DOTS = {
@@ -20,6 +21,7 @@ STATUS_DOTS = {
     'EXPERIMENTAL': 'orange',
     'IN_DEVELOPMENT': 'blue',
     'DEPRECATED': 'gray',
+    'ARCHIVED': 'gray',
 }
 
 STATUS_LABELS = {
@@ -30,6 +32,7 @@ STATUS_LABELS = {
     'EXPERIMENTAL': 'Experimental',
     'IN_DEVELOPMENT': 'In Development',
     'DEPRECATED': 'Deprecated',
+    'ARCHIVED': 'Archived',
 }
 
 STATUS_EMOJI = {
@@ -40,6 +43,7 @@ STATUS_EMOJI = {
     'EXPERIMENTAL': '\U0001F7E0',
     'IN_DEVELOPMENT': '\U0001F535',
     'DEPRECATED': '\u26AA',
+    'ARCHIVED': '\u26AA',
 }
 
 

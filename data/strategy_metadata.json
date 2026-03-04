@@ -12,7 +12,8 @@
       "MES",
       "MNQ",
       "SPY",
-      "QQQ"
+      "QQQ",
+      "IWM"
     ],
     "description": "Fair Value Gap strategy with 4 entry types, hybrid filter system, dynamic position sizing, and per-symbol trail optimization. Deployed on DigitalOcean with PickMyTrade webhook execution.",
     "entry_types": [

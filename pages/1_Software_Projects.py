@@ -52,6 +52,7 @@ _STATUS_GROUPS = [
     ("Active / Complete", ("ACTIVE", "COMPLETE")),
     ("In Progress", ("IN_PROGRESS",)),
     ("Research", ("RESEARCH",)),
+    ("Archived", ("ARCHIVED",)),
 ]
 
 for group_label, statuses in _STATUS_GROUPS:
