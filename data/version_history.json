@@ -195,5 +195,22 @@
     "category": "bugfix",
     "impact": "Eliminates phantom FVGs from incomplete bars",
     "description": "Live bot scans synced to 3-min bar close + 5s buffer instead of fixed 180s interval. Prevents phantom FVGs from incomplete TradingView data."
+  },
+  {
+    "version": "V10.16",
+    "date": "2026-03-03",
+    "title": "Trail Improvement + Per-Symbol Consec Loss Stop",
+    "category": "performance",
+    "impact": "ES +$19k/18d (+14.6%), 100% winning days, zero DD",
+    "description": "Trail activation lowered 6R to 4R for all symbols. T2 fixed exit at 5R for ES/MES (NQ/MNQ T2 trails). Per-symbol consecutive loss stop: ES/MES 2 losses, NQ/MNQ 3 losses. Centralized symbol config with completeness tests to prevent parameter drift.",
+    "ab_test": {
+      "days": 22,
+      "baseline_pl": "$131,988",
+      "new_pl": "$151,250",
+      "improvement": "+$19,263",
+      "wr_old": "84.5%",
+      "wr_new": "84.5%",
+      "combined_22d": "$581,187"
+    }
   }
 ]

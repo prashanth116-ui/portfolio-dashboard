@@ -48,7 +48,7 @@ st.markdown(
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.metric("Projects", len(projects) + 3)  # software + 3 trading repos
+    st.metric("Projects", len(projects))
 with col2:
     st.metric("Trading Systems", "3 repos")
 with col3:
@@ -86,9 +86,9 @@ trading_systems = [
     {
         "name": "tradovate-futures-bot",
         "status": "ACTIVE",
-        "version": "V10.15",
+        "version": "V10.16",
         "instruments": ["ES", "NQ", "MES", "MNQ", "SPY", "QQQ"],
-        "tagline": "ICT intraday — 4 entry types, 87% win rate, automated execution",
+        "tagline": "ICT intraday — 4 entry types, 82.5% WR, per-symbol trail optimization",
         "tech_stack": ["Python", "TradingView", "Tradovate", "Telegram"],
         "strategies": [s['name'] for s in strategies if s['id'] in ('v10_fvg', 'ict_sweep', 'ict_ote', 'ict_state_machine')],
     },
@@ -142,10 +142,10 @@ st.markdown("---")
 st.markdown("### Pages")
 
 page_links = [
-    ("pages/1_Software_Projects.py", "Software Projects", "7 project cards with status, completion, and tech stack"),
+    ("pages/1_Software_Projects.py", "Software Projects", "11 project cards with status, completion, and tech stack"),
     ("pages/2_Trading_Strategies.py", "Trading Strategies", "6 strategies across 3 repos with entry types, filters, and exits"),
     ("pages/3_Strategy_Flows.py", "Strategy Flows", "9 architecture diagrams covering the signal-to-execution pipeline"),
-    ("pages/4_Version_Timeline.py", "Version Timeline", "20 versions from V6 to V10.15 with A/B test results"),
+    ("pages/4_Version_Timeline.py", "Version Timeline", "21 versions from V6 to V10.16 with A/B test results"),
     ("pages/5_Performance.py", "Performance", "Backtest equity curves, entry breakdowns, and trade distributions"),
 ]
 

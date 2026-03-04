@@ -45,8 +45,8 @@
     "id": "prompt_iq",
     "name": "PromptIQ",
     "tagline": "Chrome extension that scores & rewrites AI prompts for ChatGPT, Claude, Gemini, Copilot & Perplexity",
-    "status": "ACTIVE",
-    "completion": 85,
+    "status": "COMPLETE",
+    "completion": 100,
     "repo": "prompt-iq",
     "github_url": "https://github.com/prashanth116-ui/prompt-iq",
     "description": "Browser extension that evaluates prompts across 6 dimensions (clarity, specificity, context, structure, constraints, role), rewrites them with topic-aware optimization, and formats output for each AI model's strengths.",
@@ -58,16 +58,11 @@
       "Guided step-by-step prompt builder",
       "Site adapters for ChatGPT, Claude, Gemini, Copilot, Perplexity",
       "Learning system tracking prompt effectiveness (200 records)",
-      "Dark mode, settings, history, onboarding"
-    ],
-    "remaining": [
-      "Firefox extension publish",
-      "Advanced analytics visualization",
-      "Custom user weight profiles",
-      "Server-side rewriting via AI APIs"
+      "Dark mode, settings, history, onboarding",
+      "143 tests (all passing, 2.4s), 391 kB build, zero TODOs/FIXMEs"
     ],
     "tech_stack": ["React 19", "TypeScript", "Tailwind CSS 4", "WXT", "Zustand", "Vitest"],
-    "deployment": "Chrome Web Store (planned)"
+    "deployment": "Chrome Web Store (ready to publish)"
   },
   {
     "id": "invoice_saas",
@@ -173,5 +168,67 @@
     ],
     "tech_stack": ["Python", "Markdown"],
     "deployment": "N/A"
+  },
+  {
+    "id": "polymarket_copy_trader",
+    "name": "Polymarket Copy Trader",
+    "tagline": "Multi-account copy trading bot for Polymarket with parallel execution & Telegram alerts",
+    "status": "ACTIVE",
+    "completion": 85,
+    "repo": "polymarket-copy-trader",
+    "github_url": "https://github.com/prashanth116-ui/polymarket-copy-trader",
+    "description": "Copy trading bot that tracks portfolios and executes trades across multiple Polymarket accounts in parallel. Paper tracking, trade copies, and daily summaries via Telegram.",
+    "features": [
+      "Multi-account parallel trade execution",
+      "Portfolio tracking and paper trading",
+      "Telegram alerts for entries, exits, and summaries",
+      "Auto-restart with health checks"
+    ],
+    "tech_stack": ["Python", "py-clob-client", "Telegram API"],
+    "deployment": "DigitalOcean Droplet"
+  },
+  {
+    "id": "htf_swing_strategy",
+    "name": "HTF Swing Strategy",
+    "tagline": "ICT multi-timeframe swing trading with Pine Script backtesting & 1-2 week holds",
+    "status": "IN_PROGRESS",
+    "completion": 80,
+    "repo": "htf-swing-strategy",
+    "github_url": "https://github.com/prashanth116-ui/htf-swing-strategy",
+    "description": "Higher timeframe swing trading bot using ICT concepts (BOS, ChoCH, order blocks, FVGs, liquidity sweeps) on daily/4H/1H/15m charts. Includes backtestable Pine Script v5 strategy and indicator.",
+    "features": [
+      "Multi-timeframe analysis: Daily (bias), 4H (structure), 1H (order blocks/FVGs), 15m (entries)",
+      "BOS/ChoCH detection, order blocks, FVG identification, liquidity sweep detection",
+      "Pine Script v5 backtestable strategy + indicator for TradingView",
+      "Webhook server for Pine Script alerts to Telegram",
+      "1-2 week hold times for swing positions"
+    ],
+    "remaining": [
+      "Live trading execution integration",
+      "Automated position management"
+    ],
+    "tech_stack": ["Python", "Pine Script v5", "TradingView", "Yahoo Finance"],
+    "deployment": "DigitalOcean Webhook Server"
+  },
+  {
+    "id": "portfolio_dashboard",
+    "name": "Portfolio Dashboard",
+    "tagline": "Interactive project showcase with trading performance charts & version timeline",
+    "status": "ACTIVE",
+    "completion": 100,
+    "repo": "portfolio-dashboard",
+    "github_url": "https://github.com/prashanth116-ui/portfolio-dashboard",
+    "description": "Personal portfolio landing page and project showcase dashboard. Multi-page Streamlit app with interactive Plotly charts, trading strategy documentation, version timeline, and performance analytics with privacy mode.",
+    "features": [
+      "Software project cards with status badges and completion bars",
+      "Trading strategy cards with expandable entry/exit/filter details",
+      "9 architecture diagrams (Mermaid rendered)",
+      "Version timeline (V6 through V10.16) with A/B test results",
+      "Performance dashboard with equity curves, daily P/L, entry type breakdown",
+      "Privacy mode (dollars vs R-multiples toggle)",
+      "Responsive design for mobile"
+    ],
+    "tech_stack": ["Python", "Streamlit", "Plotly", "pandas"],
+    "deployment": "Streamlit Cloud"
   }
 ]

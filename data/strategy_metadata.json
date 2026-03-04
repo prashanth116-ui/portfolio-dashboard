@@ -3,7 +3,7 @@
     "id": "v10_fvg",
     "name": "ICT FVG Quad Entry",
     "github_url": "https://github.com/prashanth116-ui/tradovate-futures-bot",
-    "version": "V10.15",
+    "version": "V10.16",
     "status": "ACTIVE",
     "color": "green",
     "instruments": [
@@ -14,7 +14,7 @@
       "SPY",
       "QQQ"
     ],
-    "description": "Fair Value Gap strategy with 4 entry types, hybrid filter system, and dynamic position sizing. Deployed on DigitalOcean with PickMyTrade webhook execution.",
+    "description": "Fair Value Gap strategy with 4 entry types, hybrid filter system, dynamic position sizing, and per-symbol trail optimization. Deployed on DigitalOcean with PickMyTrade webhook execution.",
     "entry_types": [
       {
         "type": "A",
@@ -39,8 +39,9 @@
     ],
     "exit_structure": {
       "t1": "Fixed profit at 3R (1 contract)",
-      "t2": "Structure trail with 4-tick buffer after 6R (1 contract)",
-      "runner": "Structure trail with 6-tick buffer after 6R (1st trade only)"
+      "t2": "ES/MES: Fixed exit at 5R | NQ/MNQ: Structure trail with 4-tick buffer after 4R",
+      "runner": "Structure trail with 6-tick buffer after 4R (1st trade only)",
+      "trail_trigger": "4R (lowered from 6R in V10.16)"
     },
     "filters": [
       "DI Direction",
