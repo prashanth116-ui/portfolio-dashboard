@@ -101,9 +101,12 @@ def export_backtest(symbol: str, days: int = 30) -> dict:
         status = 'WIN' if day_pnl > 0 else 'LOSS' if day_pnl < 0 else 'BE'
         print(f'  {target_date}: {len(results)} trades, {day_wins}W/{day_losses}L, ${day_pnl:+,.0f} [{status}]')
 
+    from runners.symbol_defaults import FUTURES_DEFAULTS
+    sym_tick_value = FUTURES_DEFAULTS.get(symbol, {}).get('tick_value', 12.5)
+
     return {
         'symbol': symbol,
-        'tick_value': tick_value,
+        'tick_value': sym_tick_value,
         'strategy_version': STRATEGY_VERSION,
         'exported_at': datetime.now().isoformat(),
         'days': daily_data,
