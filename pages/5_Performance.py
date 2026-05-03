@@ -35,16 +35,17 @@ show_dollars = show_privacy_toggle()
 
 available_symbols = list(all_data.keys())
 
-# Only show Combined when symbols are different instruments (not Live vs Backtest)
-has_combinable = len(set(s.split('_')[0] for s in available_symbols)) > 1
+# "Combined" only merges base symbols (ES, NQ) — not Live/Backtest variants
+base_symbols = [s for s in available_symbols if '_' not in s]
+has_combinable = len(base_symbols) > 1
 options = (["Combined"] + available_symbols) if has_combinable else available_symbols
 symbol_choice = st.sidebar.selectbox("Symbol", options)
 
 # Combine data based on selection
 if symbol_choice == "Combined":
     date_map = {}
-    for sym, sym_data in all_data.items():
-        for day in sym_data['days']:
+    for sym in base_symbols:
+        for day in all_data[sym]['days']:
             dt = day['date']
             if dt not in date_map:
                 date_map[dt] = {'date': dt, 'trades': [], 'summary': {'num_trades': 0, 'wins': 0, 'losses': 0, 'total_pnl': 0}}
@@ -54,7 +55,7 @@ if symbol_choice == "Combined":
             date_map[dt]['summary']['losses'] += day['summary']['losses']
             date_map[dt]['summary']['total_pnl'] += day['summary']['total_pnl']
     daily_data = sorted(date_map.values(), key=lambda x: x['date'])
-    display_symbol = " + ".join(available_symbols)
+    display_symbol = " + ".join(base_symbols)
 else:
     daily_data = all_data[symbol_choice]['days']
     display_symbol = symbol_choice
