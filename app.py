@@ -152,6 +152,7 @@ page_links = [
     ("pages/3_Strategy_Flows.py", "Strategy Flows", "9 architecture diagrams covering the signal-to-execution pipeline"),
     ("pages/4_Version_Timeline.py", "Version Timeline", "21 versions from V6 to V10.16 with A/B test results"),
     ("pages/5_Performance.py", "Performance", "Backtest equity curves, entry breakdowns, and trade distributions"),
+    ("pages/6_Strategy_Summary.py", "Strategy Summary", "V10.16 ICT FVG strategy end-to-end: entries, filters, exits, risk controls"),
 ]
 
 for path, name, desc in page_links:
